@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  background-color: red;
+  /* height: 100px; */
+  justify-content: space-between;
+  scroll-snap-align: start;
+}

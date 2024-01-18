@@ -1,0 +1,29 @@
+.container {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.container section {
+  height: 100dvh;
+  color: var(--text);
+  scroll-snap-align: end;
+}
+
+.container section:nth-child(1) {
+  background-color: gray;
+}
+
+.container section:nth-child(2) {
+  background-color: lightcoral;
+}
+
+.imagecontainer {
+  width: 100%;
+  position: relative;
+}
+
+.img {
+  object-fit: cover;
+  /* filter: opacity(60%); */
+}
