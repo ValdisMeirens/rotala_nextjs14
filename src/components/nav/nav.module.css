@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  height: 4.5rem;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
+  margin-top: 1.5rem;
+  align-content: center;
+}
+
+.rotalacontainer {
+  position: relative;
+  aspect-ratio: 1.75/1;
+}
+
+.rimbuliscontainer {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.linkcontainer {
+  position: absolute;
+  right: 10%;
+  font-size: 1.15rem;
+  text-align: right;
+  padding: 0.75rem;
+  letter-spacing: 0.15rem;
+  font-weight: 400;
+}
+
+.link {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}
+
+.link li {
+  padding-top: 0.9rem;
+  color: rgba(66, 143, 18);
+}
+
+.link li:hover {
+  color: white;
+}

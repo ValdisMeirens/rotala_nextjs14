@@ -2,8 +2,11 @@
 import styles from "./image_container.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import left from "../../../public/svg/left.svg";
+import Link from "next/link";
 import Image from "next/image";
+import rimbulis from "../../../public/nav/rimbulis.png";
+import rotala from "../../../public/nav/rotala_logo.png";
+import Nav from "../nav/nav";
 
 const ImageContainer = ({ news }) => {
   const variants = {
@@ -78,13 +81,19 @@ const ImageContainer = ({ news }) => {
           custom={direction}
         />
       </AnimatePresence>
+      <Nav />
       <div className={styles.textcontainer}>
         <div className={styles.title}>
           {news[imageIndex].title.toUpperCase()}
         </div>
         <div className={styles.smalltext}>{news[imageIndex].smalltext}</div>
         <div className={styles.text}>{news[imageIndex].text}</div>
-        <div className={styles.button}>LASĪT VAIRĀK</div>
+        <Link
+          href={`/jaunumi/${news[imageIndex].ID}`}
+          className={styles.buttondecoration}
+        >
+          <div className={styles.button}> LASĪT VAIRĀK</div>
+        </Link>
       </div>
       <button className={styles.left} onClick={prevStep}>
         ◀
