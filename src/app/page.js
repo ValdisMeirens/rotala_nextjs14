@@ -1,6 +1,10 @@
 import styles from "./home.module.css";
 import Footer from "@/components/footer/footer";
+import ContactsContainer from "@/components/news/contacts_container";
+import EventContainer from "@/components/news/events_container";
 import ImageContainer from "@/components/news/image_container";
+import LogoContainer from "@/components/news/logo_container";
+import RotalaContainer from "@/components/news/rotala_container";
 
 async function getNews() {
   const res = await fetch(`http://localhost:3000/api/news`);
@@ -19,13 +23,11 @@ export default async function Home() {
 
   return (
     <div className={styles.container}>
-      <ImageContainer key={news.id} news={news_data} />
-      <section className={styles.eventcontainer}>
-        TUVĀKIE PASĀKUMI CONTAINER
-      </section>
-      <section className={styles.infocontainer}>
-        PAPILDUS INFO CONTAINER
-      </section>
+      <LogoContainer />
+      {/* <ImageContainer news={news_data} /> */}
+      <EventContainer calendar={calendar_data} />
+      <RotalaContainer />
+      <ContactsContainer />
       <Footer />
     </div>
   );

@@ -12,7 +12,7 @@ export async function GET(req, res) {
 
   try {
     const statement =
-      "select * from kalendars where k_status = 'on' and k_datums > sysdate() order by k_datums asc limit 8";
+      "select * from kalendars where k_status = 'on' and k_datums > sysdate() order by k_datums asc limit 4";
     const values = [];
     const [data] = await dbconnection.execute(statement, values);
 

@@ -3,37 +3,57 @@ import styles from "./image_container.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import rimbulis from "../../../public/nav/rimbulis.png";
-import rotala from "../../../public/nav/rotala_logo.png";
 import Nav from "../nav/nav";
 
 const ImageContainer = ({ news }) => {
+  // const variants = {
+  //   initial: (direction) => {
+  //     return {
+  //       x: direction > 0 ? "100vw" : "-100vw",
+  //     };
+  //   },
+  //   animate: {
+  //     x: 0,
+  //     transition: {
+  //       type: "easeIn",
+  //       duration: 0.5,
+  //     },
+  //   },
+  //   exit: (direction) => {
+  //     return {
+  //       x: direction > 0 ? "-100vw" : "100vw",
+  //       transition: {
+  //         type: "easeIn",
+  //         duration: 0.7,
+  //       },
+  //     };
+  //   },
+  // };
+
   const variants = {
-    initial: (direction) => {
-      return {
-        x: direction > 0 ? "100vw" : "-100vw",
-        // opacity: 0,
-        // scale: 0.5,
-      };
+    initial: {
+      opacity: 0,
     },
     animate: {
-      x: 0,
-      // opacity: 1,
-      transition: {
-        type: "easeIn",
-        duration: 0.5,
-      },
+      opacity: 1,
+      transition: { duration: 2, type: "easeInOut" },
     },
-    exit: (direction) => {
-      return {
-        x: direction > 0 ? "-100vw" : "100vw",
-        // opacity: 0,
-        transition: {
-          type: "easeIn",
-          duration: 0.7,
-        },
-      };
+    exit: {
+      opacity: 0,
+      transition: { duration: 2, type: "easeInOut" },
+    },
+  };
+
+  const textvariant = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: { duration: 2, type: "easeInOut" },
+    },
+    exit: {
+      opacity: 0,
     },
   };
 
@@ -44,7 +64,7 @@ const ImageContainer = ({ news }) => {
     const interval = setInterval(() => {
       setDirection(1);
       setImageIndex((prevIndex) => (prevIndex + 1) % news.length);
-    }, 7000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [news.length]);
 
@@ -68,7 +88,7 @@ const ImageContainer = ({ news }) => {
 
   return (
     <section className={styles.container}>
-      <AnimatePresence initial={false} custom={direction}>
+      <AnimatePresence initial={false}>
         <motion.img
           variants={variants}
           initial="initial"
@@ -81,26 +101,27 @@ const ImageContainer = ({ news }) => {
           custom={direction}
         />
       </AnimatePresence>
-      <Nav />
       <div className={styles.textcontainer}>
-        <div className={styles.title}>
+        <div key={news[imageIndex].title} className={styles.title}>
           {news[imageIndex].title.toUpperCase()}
         </div>
-        <div className={styles.smalltext}>{news[imageIndex].smalltext}</div>
-        <div className={styles.text}>{news[imageIndex].text}</div>
+
+        {/* <div className={styles.smalltext}>{news[imageIndex].smalltext}</div>
+        <div className={styles.text}>{news[imageIndex].text}</div> */}
         <Link
           href={`/jaunumi/${news[imageIndex].ID}`}
           className={styles.buttondecoration}
         >
-          <div className={styles.button}> LASĪT VAIRĀK</div>
+          <div className={styles.button}>LASĪT VAIRĀK</div>
         </Link>
       </div>
-      <button className={styles.left} onClick={prevStep}>
+
+      {/* <button className={styles.left} onClick={prevStep}>
         ◀
       </button>
       <button className={styles.right} onClick={nextStep}>
         ▶
-      </button>
+      </button> */}
     </section>
   );
 };

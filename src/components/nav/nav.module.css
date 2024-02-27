@@ -1,4 +1,8 @@
-.container {
+.dark {
+  overflow: hidden;
+}
+
+.desktop_container {
   display: flex;
   height: 4.5rem;
   justify-content: space-between;
@@ -8,14 +12,32 @@
   align-content: center;
 }
 
+.mobile_container,
+.navlogocontainer {
+  height: 3rem;
+  width: 90%;
+  position: relative;
+  justify-content: space-between;
+  margin: auto;
+  top: 20px;
+  display: flex;
+}
+
 .rotalacontainer {
   position: relative;
   aspect-ratio: 1.75/1;
 }
 
-.rimbuliscontainer {
+.rimbuliscontainer,
+.hambugercontainer {
   position: relative;
   aspect-ratio: 1;
+}
+
+.hambugercontainer,
+.overlaycontainer,
+.mobile_container {
+  display: none;
 }
 
 .linkcontainer {
@@ -24,8 +46,8 @@
   font-size: 1.15rem;
   text-align: right;
   padding: 0.75rem;
-  letter-spacing: 0.15rem;
-  font-weight: 400;
+  letter-spacing: 0.25rem;
+  font-weight: 600;
 }
 
 .link {
@@ -37,8 +59,89 @@
 .link li {
   padding-top: 0.9rem;
   color: rgba(66, 143, 18);
+  /* color: #043f2e;
+  font-size: 1.5rem;
+  font-weight: 500; */
 }
 
 .link li:hover {
   color: white;
+}
+
+.overlaycontainer {
+  width: 100%;
+  background-color: black;
+  height: 100vh;
+}
+
+.logocontainer {
+  position: relative;
+  aspect-ratio: 1.75/1;
+}
+
+.closecontainer {
+  position: relative;
+  aspect-ratio: 0.7/1;
+  right: 10px;
+}
+
+.img,
+.close,
+.rotala {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.navtextcontainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.size {
+  text-decoration: none;
+  list-style-type: none;
+  color: #eceeff;
+  letter-spacing: 0.5rem;
+  border-bottom: 1px solid #eceeff;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.size:hover {
+  border-bottom: 1px solid #476930;
+  color: #23440f;
+}
+
+
+
+@media all and (max-width: 758px) {
+  .rimbuliscontainer,
+  .desktop_container,
+  .linkcontainer {
+    display: none;
+  }
+
+  .hambugercontainer,
+  .overlaycontainer {
+    display: block;
+  }
+  .mobile_container,
+  .navtextcontainer {
+    display: flex;
+  }
 }
