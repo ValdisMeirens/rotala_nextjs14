@@ -5,14 +5,15 @@ import EventContainer from "@/components/news/events_container";
 import ImageContainer from "@/components/news/image_container";
 import LogoContainer from "@/components/news/logo_container";
 import RotalaContainer from "@/components/news/rotala_container";
+import server from "@/config/index";
 
 async function getNews() {
-  const res = await fetch(`http://localhost:3000/api/news`);
+  const res = await fetch(`${server}/api/news`);
   return res.json();
 }
 
 async function getCalendar() {
-  const res = await fetch(`http://localhost:3000/api/kalendars`);
+  const res = await fetch(`${server}/api/kalendars`);
   return res.json();
 }
 

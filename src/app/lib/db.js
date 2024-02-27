@@ -14,7 +14,6 @@ export default async function query({ query, values = [] }) {
     dbconnection.end();
     return [];
   } catch (error) {
-    console.error("Database error:", error.message);
     throw new Error("Database query failed");
   }
 }
